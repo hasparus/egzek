@@ -1,0 +1,26 @@
+{
+  "name": "egzek",
+  "version": "0.1.0",
+  "description": "opinionated wrapper around child_process.execSync",
+  "repository": "https://github.com/hasparus/egzek",
+  "author": "Piotr Monwid-Olechnowicz <hasparus@gmail.com> (https://haspar.us)",
+  "license": "MIT",
+  "main": "dist/index.js",
+  "module": "dist/index.modern.mjs",
+  "types": "dist/index.d.ts",
+  "source": "index.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "prebuild": "rm -rf dist",
+    "build": "microbundle --target node --external child_process -f modern,cjs --sourcemap false",
+    "dev": "microbundle --target --external child_process node watch",
+    "test": "node test/index",
+    "prepublish": "yarn test"
+  },
+  "devDependencies": {
+    "@types/node": "^13.1.8",
+    "microbundle": "^0.12.0-next.8"
+  }
+}

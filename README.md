@@ -1,0 +1,2 @@
+- 706 bytes of uncompressed code
+  - This may get lower when microbundle modern starts to work
