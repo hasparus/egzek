@@ -1,8 +1,9 @@
 const { exec } = require("../dist");
 
-const filepath = `./test-1.txt`;
+const filepath = `${__dirname}/test-1.txt`;
 
 exec(`
   echo "commands are run sequentially" > ${filepath}
   cat ${filepath}
+  rm ${filepath}
 `);

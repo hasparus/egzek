@@ -4,13 +4,15 @@ const assert = require("assert");
 
 const result = exec(`node ${__dirname}/test-1`, { stdio: "pipe" });
 
-assert.equal(
-  result[0].replace("\r", ""),
+assert.deepStrictEqual(
+  result[0].replace(/\r|\u001b\[36m |\u001b\[0m/g, "").split("\n"),
   `\
-\u001b[36m ➡ echo "commands are run sequentially" > ./test-1.txt \u001b[0m
+➡ echo "commands are run sequentially" > ${__dirname}/test-1.txt 
 
-\u001b[36m ➡ cat ./test-1.txt \u001b[0m
+➡ cat ${__dirname}/test-1.txt 
 
 "commands are run sequentially" 
-`
+➡ rm ${__dirname}/test-1.txt 
+
+`.split("\n")
 );
