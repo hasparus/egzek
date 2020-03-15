@@ -1,4 +1,4 @@
-import { execSync, ExecSyncOptions } from "child_process";
+import { execSync, ExecSyncOptions, StdioOptions } from "child_process";
 
 const BLUE = `\u001b[36m`;
 const RESET = `\u001b[0m`;
@@ -18,7 +18,7 @@ export interface ExecOptions extends Omit<ExecSyncOptions, "encoding"> {
    * Child's stdio configuration.
    * @default "inherit"
    */
-  stdio?: ExecSyncOptions["stdio"];
+  stdio?: StdioOptions;
 }
 
 /**
