@@ -42,11 +42,14 @@ Output:
 
 - I write my scripts in JS/TS. Bash is a hell to maintain.
 - I wanted something smaller and simpler than [executive](https://www.npmjs.com/package/executive) and [execa](https://www.npmjs.com/package/execa).
-- I wanted something small.
-  - 4.5kB unpacked
-  - 437B gzipped, 364B Brotli.
-  - 754B of actual code and types.
-  - This may get lower when microbundle modern starts to work
+  - **small**
+    - 4.5kB unpacked
+    - 437B gzipped, 364B Brotli.
+    - 754B of actual code and types.
+  - **simple**
+    - one exported function and one exported type
+    - almost the same public API as `child_process.execSync`
+      - common defaults for `stdio` and `encoding` options
 
 ### Public API
 
