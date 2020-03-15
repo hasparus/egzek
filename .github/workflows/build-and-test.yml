@@ -7,7 +7,7 @@ on:
     branches: [ master ]
 
 jobs:
-  build-test:
+  build-and-test:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
@@ -26,11 +26,21 @@ jobs:
         echo ${{github.actor}} ${{github.ref}}
       env:
         CI: true
+    - name: Upload dist
+      uses: actions/upload-artifact@v1
+      with:
+        name: dist
+        path: dist
   release:
     runs-on: ubuntu-latest
     if: github.ref == 'refs/heads/master' && github.actor == 'hasparus'
-    needs: [build-test]
+    needs: [build-and-test]
     steps:
+    - name: Download dist
+      uses: actions/download-artifact@v1
+      with:
+        name: dist
+        path: dist  
     - name: Semantic Release
       uses: codfish/semantic-release-action@v1
       with:
