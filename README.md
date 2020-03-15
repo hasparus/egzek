@@ -42,20 +42,43 @@ Output:
 
 - I write my scripts in JS/TS. Bash is a hell to maintain.
 - I wanted something smaller and simpler than [executive](https://www.npmjs.com/package/executive) and [execa](https://www.npmjs.com/package/execa).
-- 2.7 kB unpacked, 706 bytes of actual code
+- I wanted something small.
+  - 4.5kB unpacked
+  - 437B gzipped, 364B Brotli.
+  - 754B of actual code and types.
   - This may get lower when microbundle modern starts to work
 
 ### Public API
 
 ```ts
-import { ExecSyncOptions } from "child_process";
+import { ExecSyncOptions, StdioOptions } from "child_process";
 
-interface ExecOptions extends Omit<ExecSyncOptions, "encoding"> {
+export interface ExecOptions extends Omit<ExecSyncOptions, "encoding"> {
+  /**
+   * A directory in which the commands are run.
+   */
   dir?: string;
+  /**
+   * The encoding used for all stdio inputs and outputs.
+   * @default "utf-8"
+   * @see https://nodejs.org/api/child_process.html#child_process_child_process_execsync_command_options
+   */
+  encoding?: BufferEncoding;
+  /**
+   * Child's stdio configuration.
+   * @default "inherit"
+   */
+  stdio?: StdioOptions;
 }
 
 export declare function exec(
   commands: string,
-  opts?: ExecOptions
+  options?: ExecOptions
 ): Array<string | undefined>;
 ```
+
+#### Types from `@types/node`
+
+- [**`BufferEncoding`**](https://github.com/DefinitelyTyped/DefinitelyTyped/blob/7b08f4588e8f60c2668e39f97b4ba740f5f2b087/types/node/globals.d.ts#L236) _(global)_
+- [**`StdioOptions`**](https://github.com/DefinitelyTyped/DefinitelyTyped/blob/7b08f4588e8f60c2668e39f97b4ba740f5f2b087/types/node/child_process.d.ts#L99)
+- [**`ExecSyncOptions`**](https://github.com/DefinitelyTyped/DefinitelyTyped/blob/7b08f4588e8f60c2668e39f97b4ba740f5f2b087/types/node/child_process.d.ts#L326)
