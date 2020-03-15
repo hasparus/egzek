@@ -7,10 +7,10 @@ on:
     branches: [ master ]
 
 jobs:
-  build-test-release:
-
+  build-test:
     runs-on: ubuntu-latest
-
+    
+     
     steps:
     - uses: actions/checkout@v2
     - name: Use Node.js 13.x
@@ -27,8 +27,14 @@ jobs:
         yarn prettier-check
       env:
         CI: true
+  release:
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/head/master' && secrets.GITHUB_TOKEN && secrets.NPM_TOKEN
+    steps:
     - name: Semantic Release
-      if: github.ref == 'refs/heads/master'
       uses: codfish/semantic-release-action@v1
       with:
         branch: master
+    env:
+      GH_TOKEN: ${{ secrets.GH_TOKEN }}
+      NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
