@@ -36,6 +36,7 @@ jobs:
     if: github.ref == 'refs/heads/master' && github.actor == 'hasparus'
     needs: [build-and-test]
     steps:
+    - uses: actions/checkout@v2
     - name: Download dist
       uses: actions/download-artifact@v1
       with:
