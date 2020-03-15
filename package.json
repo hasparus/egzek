@@ -2,7 +2,10 @@
   "name": "egzek",
   "version": "0.1.1",
   "description": "opinionated wrapper around child_process.execSync",
-  "repository": "https://github.com/hasparus/egzek",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/hasparus/egzek.git"
+  },
   "author": "Piotr Monwid-Olechnowicz <hasparus@gmail.com> (https://haspar.us)",
   "license": "MIT",
   "main": "dist/index.js",
