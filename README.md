@@ -2,15 +2,6 @@
 
 **An opinionated wrapper around child_process.execSync.**
 
-### Why?
-
-- I write my scripts in JS/TS. Bash is hell to maintain.
-- I wanted something smaller and simpler than [executive](https://www.npmjs.com/package/executive) and [execa](https://www.npmjs.com/package/execa).
-- 2.7 kB unpacked, 706 bytes of actual code
-  - This may get lower when microbundle modern starts to work
-
----
-
 ### Installation
 
 ```sh
@@ -39,6 +30,13 @@ Output:
 
  ➡ rm /test-1.txt
 ```
+
+### Why?
+
+- I write my scripts in JS/TS. Bash is hell to maintain.
+- I wanted something smaller and simpler than [executive](https://www.npmjs.com/package/executive) and [execa](https://www.npmjs.com/package/execa).
+- 2.7 kB unpacked, 706 bytes of actual code
+  - This may get lower when microbundle modern starts to work
 
 ### Public API
 
