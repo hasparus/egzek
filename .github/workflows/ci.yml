@@ -2,50 +2,49 @@ name: Build, Test and Release
 
 on:
   push:
-    branches: [ master ]
+    branches: [master]
   pull_request:
-    branches: [ master ]
+    branches: [master]
 
 jobs:
   build-and-test:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
-    - name: Use Node.js 13.x
-      uses: actions/setup-node@v1
-      with:
-        node-version: 13.x
-    - name: Install
-      run: yarn install --no-progress --non-interactive --skip-integrity-check
-    - name: Build
-      run : yarn build
-    - name: Check
-      run: |
-        yarn test
-        yarn prettier-check
-        echo ${{github.actor}} ${{github.ref}}
-      env:
-        CI: true
-    - name: Upload dist
-      uses: actions/upload-artifact@v1
-      with:
-        name: dist
-        path: dist
+      - uses: actions/checkout@v2
+      - name: Use Node.js 13.x
+        uses: actions/setup-node@v1
+        with:
+          node-version: 13.x
+      - name: Install
+        run: yarn install --no-progress --non-interactive --skip-integrity-check
+      - name: Build
+        run: yarn build
+      - name: Check
+        run: |
+          yarn test
+          yarn prettier-check
+        env:
+          CI: true
+      - name: Upload dist
+        uses: actions/upload-artifact@v1
+        with:
+          name: dist
+          path: dist
   release:
     runs-on: ubuntu-latest
     if: github.ref == 'refs/heads/master' && github.actor == 'hasparus'
     needs: [build-and-test]
     steps:
-    - uses: actions/checkout@v2
-    - name: Download dist
-      uses: actions/download-artifact@v1
-      with:
-        name: dist
-        path: dist  
-    - name: Semantic Release
-      uses: cycjimmy/semantic-release-action@v2.2.0
-      with:
-        branch: master
+      - uses: actions/checkout@v2
+      - name: Download dist
+        uses: actions/download-artifact@v1
+        with:
+          name: dist
+          path: dist
+      - name: Semantic Release
+        uses: cycjimmy/semantic-release-action@v2.2.0
+        with:
+          branch: master
     env:
       GH_TOKEN: ${{ secrets.GH_TOKEN }}
       NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
