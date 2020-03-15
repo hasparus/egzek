@@ -25,6 +25,7 @@ jobs:
       run: |
         yarn test
         yarn prettier-check
+        echo ${{github.actor}} ${{github.ref}}
       env:
         CI: true
   release:
