@@ -15,6 +15,7 @@ export interface ExecOptions extends Omit<ExecSyncOptions, "encoding"> {
    */
   encoding?: BufferEncoding;
   /**
+   * Child's stdio configuration.
    * @default "inherit"
    */
   stdio?: ExecSyncOptions["stdio"];
