@@ -9,8 +9,6 @@ on:
 jobs:
   build-test:
     runs-on: ubuntu-latest
-    
-     
     steps:
     - uses: actions/checkout@v2
     - name: Use Node.js 13.x
@@ -30,7 +28,7 @@ jobs:
         CI: true
   release:
     runs-on: ubuntu-latest
-    if: github.ref == 'refs/head/master' && github.actor == 'hasparus'
+    if: github.ref == 'refs/heads/master' && github.actor == 'hasparus'
     steps:
     - name: Semantic Release
       uses: codfish/semantic-release-action@v1
