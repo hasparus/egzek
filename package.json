@@ -16,14 +16,16 @@
     "prebuild": "rm -rf dist & true",
     "build": "microbundle --target node --external child_process -f modern,cjs --sourcemap false",
     "test": "node test/index",
+    "prettier-check": "yarn prettier --check 'test/**/*.js' 'index.ts'",
     "prepublishOnly": "yarn test",
     "commit": "gitmoji -c",
     "c": "gitmoji -c"
   },
   "devDependencies": {
+    "@hasparus/microbundle": "0.12.0-next.9x",
     "@types/node": "^13.9.1",
     "gitmoji-cli": "^3.2.3",
-    "@hasparus/microbundle": "0.12.0-next.9x"
+    "prettier": "^1.19.1"
   },
   "resolutions": {
     "minimist": "1.2.2"
