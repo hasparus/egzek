@@ -13,14 +13,17 @@
     "dist"
   ],
   "scripts": {
-    "prebuild": "rm -rf dist",
+    "prebuild": "rm -rf dist & true",
     "build": "microbundle --target node --external child_process -f modern,cjs --sourcemap false",
     "dev": "microbundle --target --external child_process node watch",
     "test": "node test/index",
-    "prepublish": "yarn test"
+    "prepublishOnly": "yarn test",
+    "commit": "gitmoji -c",
+    "c": "gitmoji -c"
   },
   "devDependencies": {
-    "@types/node": "^13.1.8",
+    "@types/node": "^13.9.1",
+    "gitmoji-cli": "^3.2.3",
     "microbundle": "^0.12.0-next.8"
   }
 }
