@@ -24,7 +24,13 @@ jobs:
       uses: actions/setup-node@v1
       with:
         node-version: ${{ matrix.node-version }}
-    - run: npm run build
-    - run: npm test
+    - name: Install
+      run: yarn install --no-progress --non-interactive --skip-integrity-check
+    - name: Build
+      run : yarn build
+    - name: Check
+      run: |
+        yarn test
+        yarn prettier-check
       env:
         CI: true
