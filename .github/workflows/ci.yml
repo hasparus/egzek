@@ -25,11 +25,6 @@ jobs:
           yarn prettier-check
         env:
           CI: true
-      - name: Upload node_modules
-        uses: actions/upload-artifact@v1
-        with:
-          name: node_modules
-          path: node_modules
       - name: Upload dist
         uses: actions/upload-artifact@v1
         with:
@@ -41,16 +36,13 @@ jobs:
     needs: [build-and-test]
     steps:
       - uses: actions/checkout@v2
+      - name: Install
+        run: yarn install --no-progress --non-interactive --skip-integrity-check
       - name: Download dist
         uses: actions/download-artifact@v1
         with:
           name: dist
           path: dist
-      - name: Download node_modules
-        uses: actions/download-artifact@v1
-        with:
-          name: node_modules
-          path: node_modules
       - name: Semantic Release
         uses: cycjimmy/semantic-release-action@v2.2.0
         with:
