@@ -29,6 +29,7 @@ jobs:
   release:
     runs-on: ubuntu-latest
     if: github.ref == 'refs/heads/master' && github.actor == 'hasparus'
+    needs: [build-test]
     steps:
     - name: Semantic Release
       uses: codfish/semantic-release-action@v1
