@@ -24,6 +24,6 @@
   "devDependencies": {
     "@types/node": "^13.9.1",
     "gitmoji-cli": "^3.2.3",
-    "microbundle": "^0.12.0-next.8"
+    "@hasparus/microbundle": "0.12.0-next.9x"
   }
 }
