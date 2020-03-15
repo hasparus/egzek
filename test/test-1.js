@@ -1,3 +1,4 @@
+// @ts-check
 const { exec } = require("../dist");
 
 const filepath = `${__dirname}/test-1.txt`;
