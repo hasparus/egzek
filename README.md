@@ -1,6 +1,8 @@
 # egzek
 
 [![Build and Test](https://github.com/hasparus/egzek/workflows/Build%20and%20Test/badge.svg)](https://github.com/hasparus/egzek/actions?query=workflow%3A%22Build+and+Test%22)
+[![Gitmoji](https://img.shields.io/badge/gitmoji-%20😜%20😍-FFDD67.svg?style=flat-square)](https://gitmoji.carloscuesta.me/)
+
 
 **An opinionated wrapper around child_process.execSync.**
 
