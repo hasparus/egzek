@@ -42,7 +42,7 @@ jobs:
         name: dist
         path: dist  
     - name: Semantic Release
-      uses: codfish/semantic-release-action@v1
+      uses: cycjimmy/semantic-release-action@v2.2.0
       with:
         branch: master
     env:
