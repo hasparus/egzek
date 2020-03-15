@@ -1,6 +1,6 @@
 {
   "name": "egzek",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "opinionated wrapper around child_process.execSync",
   "repository": "https://github.com/hasparus/egzek",
   "author": "Piotr Monwid-Olechnowicz <hasparus@gmail.com> (https://haspar.us)",
@@ -15,7 +15,6 @@
   "scripts": {
     "prebuild": "rm -rf dist & true",
     "build": "microbundle --target node --external child_process -f modern,cjs --sourcemap false",
-    "dev": "microbundle --target --external child_process node watch",
     "test": "node test/index",
     "prepublishOnly": "yarn test",
     "commit": "gitmoji -c",
@@ -25,5 +24,8 @@
     "@types/node": "^13.9.1",
     "gitmoji-cli": "^3.2.3",
     "@hasparus/microbundle": "0.12.0-next.9x"
+  },
+  "resolutions": {
+    "minimist": "1.2.2"
   }
 }
