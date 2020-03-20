@@ -18,7 +18,7 @@
   "scripts": {
     "prebuild": "rm -rf dist & true",
     "build": "microbundle --target node --external child_process -f modern,cjs --sourcemap false",
-    "test": "node test/index",
+    "test": "node ./test",
     "prettier-check": "yarn prettier --check 'test/**/*.js' 'index.ts'",
     "prepublishOnly": "yarn test",
     "commit": "gitmoji -c",
@@ -33,7 +33,9 @@
     "gitmoji-cli": "^3.2.3",
     "prettier": "^1.19.1",
     "semantic-release": "^17.0.4",
-    "semantic-release-gitmoji": "^1.3.3"
+    "semantic-release-gitmoji": "^1.3.3",
+    "ts-expect": "^1.1.0",
+    "ts-node": "^8.7.0"
   },
   "resolutions": {
     "minimist": "1.2.2"
