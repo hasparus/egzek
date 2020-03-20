@@ -55,7 +55,6 @@ Output:
 
 ```ts
 import { ExecSyncOptions, StdioOptions } from "child_process";
-
 export interface ExecOptions extends Omit<ExecSyncOptions, "encoding"> {
   /**
    * A directory in which the commands are run.
@@ -73,11 +72,31 @@ export interface ExecOptions extends Omit<ExecSyncOptions, "encoding"> {
    */
   stdio?: StdioOptions;
 }
-
+export declare namespace ExecOptions {
+  interface Pipe extends ExecOptions {
+    stdio: "pipe" | [any, "pipe", any?];
+  }
+  interface Inherit extends ExecOptions {
+    stdio?: "inherit" | [any, "inherit", any?];
+  }
+}
+/**
+ * @example
+ *  exec(`
+ *    echo "commands are run sequentially" > ${filepath}
+ *    cat ${filepath}
+ *  `);
+ *
+ * @returns array of strings when options.stdio is `pipe`, otherwise undefined
+ */
 export declare function exec(
   commands: string,
-  options?: ExecOptions
-): Array<string | undefined>;
+  options: ExecOptions.Pipe
+): string[];
+export declare function exec(
+  commands: string,
+  options?: ExecOptions.Inherit
+): undefined;
 ```
 
 #### Types from `@types/node`
