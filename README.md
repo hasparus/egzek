@@ -43,7 +43,7 @@ Output:
 - Bash is a hell to maintain. Node is a great alternative for utility scripts
 - I wanted something smaller and simpler than [executive](https://www.npmjs.com/package/executive) and [execa](https://www.npmjs.com/package/execa).
   - **small**
-    - 4.5kB unpacked
+    - 7.36kB unpacked
     - 479B gzipped, 428B Brotli.
     - 831B of uncompressed JavaScript code, 1.2kB of types.
   - **simple**
