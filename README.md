@@ -40,12 +40,12 @@ Output:
 
 ### Why?
 
-- I write my scripts in JS/TS. Bash is a hell to maintain.
+- Bash is a hell to maintain. Node is a great alternative for utility scripts
 - I wanted something smaller and simpler than [executive](https://www.npmjs.com/package/executive) and [execa](https://www.npmjs.com/package/execa).
   - **small**
     - 4.5kB unpacked
-    - 437B gzipped, 364B Brotli.
-    - 754B of actual code and types.
+    - 479B gzipped, 428B Brotli.
+    - 831B of uncompressed JavaScript code, 1.2kB of types.
   - **simple**
     - one exported function and one exported type
     - almost the same public API as `child_process.execSync`
