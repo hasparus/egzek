@@ -38,6 +38,8 @@ Output:
  ➡ rm /test-1.txt
 ```
 
+#### [**Try it on CodeSandbox.**](https://codesandbox.io/s/egzek-cpf16)
+
 ### Why?
 
 - Bash is a hell to maintain. Node is a great alternative for utility scripts
