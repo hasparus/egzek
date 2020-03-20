@@ -7,6 +7,8 @@
 
 **An opinionated wrapper around child_process.execSync.**
 
+It runs each line consecutively and prints it for convenience. 
+
 ---
 
 ### Installation
